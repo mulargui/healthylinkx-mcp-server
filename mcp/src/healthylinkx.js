@@ -30,7 +30,9 @@ export async function SearchDoctors(gender, lastname, specialty, zipcode){
  	//check params
  	if(!zipcode && !lastname && !specialty)
 		return ServerReply (204, "Not enought params!");
-
+ 	if(!lastname && !specialty)
+		return ServerReply (204, "Not enought params!");
+    
     //normalize gender
 	if (gender){
 		if (gender === 'male') gender = 'M';

@@ -20,7 +20,7 @@ server.registerTool(
         description: 'Search for doctors in the HealthyLinkx directory',
         inputSchema: {
             zipcode: z.number().int().gte(10000).lte(99999).describe("Zipcode of the address of the doctor"),
-            lastname: z.string().describe("Lastname of the doctor"),
+            lastname: z.string().describe("Lastname of the doctor").optional(),
             specialty: z.string().describe("Specialty of the doctor").optional(),
             gender: z.enum(["male", "female"]).describe("Gender of the doctor. Select an option").optional()
         },

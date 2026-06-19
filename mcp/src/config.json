@@ -1,0 +1,11 @@
+{
+  "mcp": {
+    "functionName": "mcp-lambda",
+    "roleName": "mcp-lambda-role",
+    "debug": true
+  },
+  "datastore": {
+    "user":"root",
+    "passwd": "awsdatastore"
+  }
+}

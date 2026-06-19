@@ -182,6 +182,16 @@ export default class LambdaDeployer {
       });
 
       await lambda.send(addPermissionCommand);
+
+      // Grant the InvokeFunction permission via the URL
+      await lambda.send(new AddPermissionCommand({
+        FunctionName: functionName,
+        StatementId: "FunctionURLInvokeFunctionPublicAccess", 
+        Action: "lambda:InvokeFunction",
+        Principal: "*",
+        InvokedViaFunctionUrl: true 
+      }));
+
       console.log("Function URL public access permission added successfully");
     } catch (error) {
       if (error.name === "ResourceConflictException") {
